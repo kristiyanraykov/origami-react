@@ -7,6 +7,7 @@ const Origami = ({
 }) => {
     return (
         <div className={styles.container}>
+
             <img className={styles['origami-image']} src={logo}/>
             <p className={styles.description}>
                 {description}
