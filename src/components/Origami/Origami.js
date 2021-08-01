@@ -1,5 +1,6 @@
 import styles from './Origami.module.css'
 import logo from '../../image/blue-origami-bird.png'
+
 const Origami = ({
     description,
     author
