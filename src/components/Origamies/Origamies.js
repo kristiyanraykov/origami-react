@@ -7,11 +7,14 @@ const Origamies = () => {
     const data = [
         {
             description: 'lorem ipsum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborumagjsd;lgsdfalsdsafdlsg',
-            author: 'kris'
+
+            author: 'kris',
+            _id: 'q363469304532904',
         },
         {
             description: 'lorem ipsum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborumagjsd;lgsdfalsdsafdlsg',
-            author: 'not kris'
+            author: 'not kris',
+            _id: '5089438693049thdsjhgsd'
         },
 
     ]
