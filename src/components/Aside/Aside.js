@@ -1,13 +1,20 @@
 import Link from '../Link/Link'
 import styles from './Aside.module.css'
+import getNavigation from '../../utils/navigation'
 
 const Aside = () => {
+    const links = getNavigation();
     return (
-            <nav className={styles.aside}>
-                <Link href="#" title="Going to 1" type="aside"/>
-                <Link href="#" title="Going to 2" type="aside"/>
-                <Link href="#" title="Going to 3" type="aside"/>
-            </nav>
+            <aside className={styles.aside}>
+            {
+                links.map(navElement => {
+                    return (
+                        <Link href={navElement.link} title={navElement.title} type="aside" />
+
+                    )
+                })
+            }
+            </aside>
     )
 }
 

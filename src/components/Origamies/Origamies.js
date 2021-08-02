@@ -28,9 +28,9 @@ const Origamies = () => {
 
     const renderOrigamies = () => {
 
-        return origamies.map(x => {
+        return origamies.map((x, i) => {
             return (
-                <Origami key={x._id} {...x} />
+                <Origami key={x._id} index={i} {...x} />
             )
         })
     }
