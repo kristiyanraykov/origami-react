@@ -1,13 +1,22 @@
 import Link from '../Link/Link';
 import styles from './Header.module.css'
 import logo from '../../image/white-origami-bird.png'
+import getNavigation from '../../utils/navigation';
+
 const Header = () => {
+    const links = getNavigation();
     return (
         <nav className={styles.navigation}>
-            <img src={logo}/>
-            <Link href="#" title="Going to 1" type="header"/>
-            <Link href="#" title="Going to 2" type="header"/>
-            <Link href="#" title="Going to 3" type="header"/>
+            <img src={logo} />
+            {
+                links.map(navElement => {
+                    return (
+                        <Link href={navElement.link} title={navElement.title} type="header" />
+
+                    )
+                })
+            }
+
         </nav>
     )
 }
