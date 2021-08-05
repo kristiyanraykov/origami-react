@@ -1,6 +1,6 @@
 import image from '../../image/blue-origami-bird-flipped.png'
 import styles from './Footer.module.css'
-import Link from '../Link/Link'
+import LinkComponent from '../LinkComponent/LinkComponent'
 import getNavigation from '../../utils/navigation'
 
 const Footer = () => {
@@ -11,7 +11,12 @@ const Footer = () => {
             {
                 links.map(navElement => {
                     return (
-                        <Link href={navElement.link} title={navElement.title} type="footer" />
+                        <LinkComponent 
+                        key={navElement.title}
+                        href={navElement.link} 
+                        title={navElement.title} 
+                        type="footer" 
+                        />
 
                     )
                 })
