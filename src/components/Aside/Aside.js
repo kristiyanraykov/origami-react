@@ -1,4 +1,4 @@
-import Link from '../Link/Link'
+import LinkComponent from '../LinkComponent/LinkComponent'
 import styles from './Aside.module.css'
 import getNavigation from '../../utils/navigation'
 
@@ -9,7 +9,12 @@ const Aside = () => {
             {
                 links.map(navElement => {
                     return (
-                        <Link href={navElement.link} title={navElement.title} type="aside" />
+                        <LinkComponent 
+                        key={navElement.title}
+                        href={navElement.link} 
+                        title={navElement.title} 
+                        type="aside" 
+                        />
 
                     )
                 })

@@ -1,4 +1,4 @@
-import Link from '../Link/Link';
+import LinkComponent from '../LinkComponent/LinkComponent';
 import styles from './Header.module.css'
 import logo from '../../image/white-origami-bird.png'
 import getNavigation from '../../utils/navigation';
@@ -11,7 +11,12 @@ const Header = () => {
             {
                 links.map(navElement => {
                     return (
-                        <Link href={navElement.link} title={navElement.title} type="header" />
+                        <LinkComponent 
+                        key={navElement.title}
+                        href={navElement.link} 
+                        title={navElement.title} 
+                        type="header" 
+                        />
 
                     )
                 })
