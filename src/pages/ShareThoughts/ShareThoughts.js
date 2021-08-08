@@ -10,7 +10,7 @@ const ShareThoughtsPage = () => {
             <Title title='Share Your Thoughts...' />
             <div className={styles.container}>
                 <div>
-                    <textarea className={styles.textarea}></textarea>
+                    <textarea className={styles.textarea} defaultValue='Share Your Thoughts...' ></textarea>
 
                 </div>
                 <div>
