@@ -6,15 +6,18 @@ import SubmitButton from "../../components/Button/SubmitButton"
 import Title from "../../components/Title/Title"
 import PageWrapper from '../../components/PageWrapper/PageWrapper'
 import Input from '../../components/Input/Input'
+import authenticate from '../../utils/authenticate'
 
-const Login = () => {
-    let [email, setEmail] = useState('')
+const Login = ({
+    history
+}) => {
+    let [username, setUsername] = useState('')
     let [password, setPassword] = useState('')
 
-    const onChange = (event, type) => {
+    const handleChange = (event, type) => {
         switch (type) {
-            case 'email':
-                setEmail(event)
+            case 'username':
+                setUsername(event)
                 break;
             case 'password':
                 setPassword(event)
@@ -24,25 +27,42 @@ const Login = () => {
         }
     }
 
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        await authenticate('http://localhost:9999/api/user/login', {
+            username, password 
+        }, () => {
+            console.log('Logged in');
+            history.push('/')
+        }, (e) => {
+            console.log('Error');
+            console.log(e);
+        }
+        )
+    }
+
+
+
     return (
         <PageWrapper>
-            <div className={styles.container}>
+            <form className={styles.container} onSubmit={handleSubmit}>
                 <Title title={'Login'} />
                 <Input
-                    value={email}
-                    onChange={(e) => onChange(e.target.value, 'email')}
-                    label='Email'
-                    id='email'
+                    value={username}
+                    onChange={(e) => handleChange(e.target.value, 'username')}
+                    label='Username'
+                    id='username'
                 />
                 <Input
+                    type="password"
                     value={password}
-                    onChange={(e) => onChange(e.target.value, 'password')}
+                    onChange={(e) => handleChange(e.target.value, 'password')}
                     label='Password'
                     id='password'
                 />
 
                 <SubmitButton title={'Login'} />
-            </div>
+            </form>
 
         </PageWrapper>
     )
