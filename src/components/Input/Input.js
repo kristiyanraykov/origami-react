@@ -2,13 +2,14 @@ const Input = ({
     label,
     id,
     value,
-    onChange
+    onChange,
+    type
 }) => {
     return (
         <div>
             <label htmlFor={id}>
                 {label}:
-                <input id={id} value={value} onChange={onChange} />
+                <input type={type || 'text'} id={id} value={value} onChange={onChange} />
             </label>
         </div>
 

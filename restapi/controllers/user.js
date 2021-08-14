@@ -15,8 +15,9 @@ module.exports = {
             models.User.create({ username, password })
                 .then((createdUser) => {
                     const token = utils.jwt.createToken({ id: createdUser._id });
-                    res.header("Authorization", token.send(createdUser));
-                }).catch(next)
+                    res.header("Authorization", token).send(createdUser);
+                })
+                .catch(err => console.log(err))
         },
         verifyLogin: (req, res, next) => {
             const token = req.headers.authorization || ''
