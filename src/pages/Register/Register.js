@@ -1,12 +1,13 @@
 import styles from './Register.module.css'
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 import Title from '../../components/Title/Title';
 import SubmitButton from '../../components/Button/SubmitButton';
 import PageWrapper from '../../components/PageWrapper/PageWrapper';
 import Input from '../../components/Input/Input';
 import authenticate from '../../utils/authenticate';
+import UserContext from '../../Context';
 
 const Register = ({
     history
@@ -14,6 +15,8 @@ const Register = ({
     let [username, setUsername] = useState('')
     let [password, setPassword] = useState('')
     let [rePassword, setRePassword] = useState('')
+
+    const userContext = useContext(UserContext)
 
     const onChange = (event, type) => {
         switch (type) {
@@ -36,8 +39,8 @@ const Register = ({
         e.preventDefault()
         await authenticate('http://localhost:9999/api/user/register', {
             username, password 
-        }, () => {
-            console.log('Logged in');
+        }, (user) => {
+            userContext.logIn(user)
             history.push('/')
         }, (e) => {
             console.log('Error');

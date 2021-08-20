@@ -1,18 +1,21 @@
 import styles from './Login.module.css'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 
 import SubmitButton from "../../components/Button/SubmitButton"
 import Title from "../../components/Title/Title"
 import PageWrapper from '../../components/PageWrapper/PageWrapper'
 import Input from '../../components/Input/Input'
 import authenticate from '../../utils/authenticate'
+import UserContext from '../../Context'
 
 const Login = ({
     history
 }) => {
     let [username, setUsername] = useState('')
     let [password, setPassword] = useState('')
+
+    const userContext = useContext(UserContext)
 
     const handleChange = (event, type) => {
         switch (type) {
@@ -31,8 +34,8 @@ const Login = ({
         e.preventDefault()
         await authenticate('http://localhost:9999/api/user/login', {
             username, password 
-        }, () => {
-            console.log('Logged in');
+        }, (user) => {
+            userContext.logIn(user)
             history.push('/')
         }, (e) => {
             console.log('Error');
